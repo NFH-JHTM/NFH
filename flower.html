@@ -24,6 +24,7 @@
             font-family: 'Playfair Display', serif;
             backdrop-filter: blur(8px);
             width: 200px;
+            display: none;
         }
         .password-panel input {
             padding: 6px;
@@ -54,72 +55,32 @@
             margin-top: 8px;
             font-size: 12px;
         }
-        @media (max-width: 600px) {
-            .password-panel {
-                bottom: 5px;
-                right: 5px;
-                width: 180px;
-                padding: 8px;
-            }
-            .password-panel input, .password-panel button {
-                font-size: 12px;
-            }
-        }
-          </style><style>
-        .password-panel {
+        .toggle-icon {
             position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 12px;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
             color: white;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            backdrop-filter: blur(8px);
-            width: 200px;
-        }
-        .password-panel input {
-            padding: 6px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            font-family: 'Playfair Display', serif;
-            width: 90%;
-        }
-        .password-panel button {
-            padding: 6px 12px;
-            margin-top: 6px;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
             cursor: pointer;
-            font-size: 14px;
-            font-family: 'Playfair Display', serif;
-            transition: background 0.3s;
-        }
-        .password-panel button:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
-        #hint {
-            display: none;
-            color: yellow;
-            margin-top: 8px;
-            font-size: 12px;
+            font-family: Arial, sans-serif;
         }
         @media (max-width: 600px) {
             .password-panel {
-                bottom: 5px;
-                right: 5px;
                 width: 180px;
                 padding: 8px;
             }
-            .password-panel input, .password-panel button {
-                font-size: 12px;
+            .toggle-icon {
+                display: flex;
             }
         }
-          </style>
+      </style>
 </head>
 
 <body class="not-loaded">
@@ -433,7 +394,8 @@
 <!-- Import Javascript -->
 <script src="js/main.js"></script>
 
-<div class="password-panel" id="passwordPanel">
+<div class="toggle-icon" onclick="togglePanel()">?</div>
+    <div class="password-panel" id="passwordPanel">
         <label>???</label>
         <input type="password" id="passwordInput">
         <button onclick="checkPassword()">OK</button>
@@ -461,6 +423,15 @@
                     message.style.display = "none";
                     hint.style.display = "none";
                 }, 1000);
+            }
+        }
+        
+        function togglePanel() {
+            var panel = document.getElementById("passwordPanel");
+            if (panel.style.display === "none" || panel.style.display === "") {
+                panel.style.display = "block";
+            } else {
+                panel.style.display = "none";
             }
         }
     </script>
