@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
   <!-- Document Title -->
   <title>FLOWERS</title>
@@ -15,28 +16,35 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 12px;
             color: white;
             text-align: center;
+            font-family: 'Playfair Display', serif;
+            backdrop-filter: blur(8px);
         }
         .password-panel input {
-            padding: 5px;
+            padding: 8px;
             border: none;
             border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
         }
         .password-panel button {
-            padding: 5px 10px;
-            margin-top: 5px;
+            padding: 8px 15px;
+            margin-top: 8px;
             border: none;
             border-radius: 5px;
-            background: #4CAF50;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             cursor: pointer;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
+            transition: background 0.3s;
         }
         .password-panel button:hover {
-            background: #45a049;
+            background: rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
@@ -353,10 +361,10 @@
 <script src="js/main.js"></script>
 
 <div class="password-panel" id="passwordPanel">
-        <label>Nhập password:</label>
+        <label>???</label>
         <input type="password" id="passwordInput">
         <button onclick="checkPassword()">OK</button>
-        <p id="message" style="color: red; display: none;">Sai password!</p>
+        <p id="message" style="color: red; display: none;">Incorrect!</p>
     </div>
 
     <script>
