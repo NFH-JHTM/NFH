@@ -378,14 +378,22 @@
         let wrongAttempts = 0;
         function checkPassword() {
             var password = document.getElementById("passwordInput").value;
+            var message = document.getElementById("message");
+            var hint = document.getElementById("hint");
+            
             if (password === "230825") {
                 window.location.href = "https://streamable.com/d6yh24";
             } else {
-                document.getElementById("message").style.display = "block";
+                message.style.display = "block";
                 wrongAttempts++;
                 if (wrongAttempts >= 5) {
-                    document.getElementById("hint").style.display = "block";
+                    hint.style.display = "block";
                 }
+                
+                setTimeout(() => {
+                    message.style.display = "none";
+                    hint.style.display = "none";
+                }, 1000);
             }
         }
     </script>
