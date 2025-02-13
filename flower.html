@@ -10,6 +10,35 @@
 
   <!-- Document Title -->
   <title>FLOWERS</title>
+      <style>
+        .password-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+        .password-panel input {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        .password-panel button {
+            padding: 5px 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .password-panel button:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
 
 <body class="not-loaded">
@@ -322,3 +351,21 @@
 
 <!-- Import Javascript -->
 <script src="js/main.js"></script>
+
+<div class="password-panel" id="passwordPanel">
+        <label>Nhập password:</label>
+        <input type="password" id="passwordInput">
+        <button onclick="checkPassword()">OK</button>
+        <p id="message" style="color: red; display: none;">Sai password!</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            if (password === "230825") {
+                window.location.href = "https://streamable.com/d6yh24";
+            } else {
+                document.getElementById("message").style.display = "block";
+            }
+        }
+    </script>
