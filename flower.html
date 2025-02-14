@@ -417,7 +417,36 @@
         <p id="hint">Hint: The Clock</p>
     </div>
 
-    <script>
-        let encodedScript = "ZnVuY3Rpb24gdG9nZ2xlUGFuZWwoKSB7dmFyIHA9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJwYXNzd29yZFBhbmVsXCIpO3ZhciB0PWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIudG9nZ2xlLWljb25cIik7aWYgKHAmJihwLnN0eWxlLmRpc3BsYXk9PT1cIm5vbmVcInx8cC5zdHlsZS5kaXNwbGF5PT09XCJcIikpe3Auc3R5bGUuZGlzcGxheT1cImJsb2NrXCI7dC5zdHlsZS5kaXNwbGF5PVwibm9uZVwifWVsc2V7cC5zdHlsZS5kaXNwbGF5PVwibm9uZVwiO3Quc3R5bGUuZGlzcGxheT1cImZsZXhcIn19ZnVuY3Rpb24gZGVjb2RlU2NyaXB0KCl7dmFyIHA9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJwYXNzd29yZElucHV0XCIpLnZhbHVlO2lmIChiZW50b2EocCk9PT0iMjMwODI1Iil7d2luZG93LmxvY2F0aW9uLmhyZWY9Imh0dHBzOi8vc3RyZWFtYWJsZS5jb20vZDZ5aG4yNCJ9ZWxzZXtkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiYmVudG9hX21zZyIpLnN0eWxlLmRpc3BsYXk9ImJsb2NrIjtzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImJlbnRvYV9tc2ciKS5zdHlsZS5kaXNwbGF5PSJub25lIn0sMTAwMCk7fX0=";
-        eval(atob(encodedScript));
-    </script>
+   <script>
+    let wrongAttempts = 0;
+    function checkPassword() {
+        var password = document.getElementById("passwordInput").value;
+        var message = document.getElementById("message");
+        var hint = document.getElementById("hint");
+        var encoded = btoa(password);
+        if (encoded === "MjMwODI1") {
+            window.location.href = "https://streamable.com/d6yh24";
+        } else {
+            message.style.display = "block";
+            wrongAttempts++;
+            if (wrongAttempts >= 5) {
+                hint.style.display = "block";
+            }
+            setTimeout(() => {
+                message.style.display = "none";
+                hint.style.display = "none";
+            }, 1000);
+        }
+    }
+    function togglePanel() {
+        var panel = document.getElementById("passwordPanel");
+        var toggleIcon = document.querySelector(".toggle-icon");
+        if (panel.style.display === "none" || panel.style.display === "") {
+            panel.style.display = "block";
+            toggleIcon.style.display = "none";
+        } else {
+            panel.style.display = "none";
+            toggleIcon.style.display = "flex";
+        }
+    }
+  </script>
