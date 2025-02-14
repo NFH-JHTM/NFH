@@ -422,22 +422,25 @@
         function checkPassword() {
             var password = document.getElementById("passwordInput").value;
             var message = document.getElementById("message");
-            var panel = document.getElementById("passwordPanel");
+            var hint = document.getElementById("hint");
             var encoded = btoa(input);
-            
-           
             var encodedLink = "aHR0cHM6Ly9zdHJlYW1hYmxlLmNvbS9kNnlobjI0";
             
             if (encoded === "MjMwODI1") {
                 window.location.href = atob(encodedLink); 
             } else {
                 message.style.display = "block";
+                wrongAttempts++;
+                if (wrongAttempts >= 5) {
+                    hint.style.display = "block";
+                }
+                
                 setTimeout(() => {
                     message.style.display = "none";
+                    hint.style.display = "none";
                 }, 1000);
             }
         }
-
         
         function togglePanel() {
             var panel = document.getElementById("passwordPanel");
